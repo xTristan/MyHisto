@@ -1,0 +1,32 @@
+Rule of Thumb:
+
+[app name]: an application that carries an isolated piece of business logic. 
+  -- client: client side impl such as js/css/html files.
+  -- server: server side impl that fetches necessary data for driving the app it belongs to.
+  -- shared: something to be shared across client and server, if necessary. 
+
+Notice that I didn't take the traditional approach that divides the entire site into c/ and s/ at the first level, but did that under each individual application. This will lead to a less entangled dependency graph because this way you will be more cautious about introducing dependencies that crosses business logic boundaries. 
+
+
+common/
+     Something to be shared across all sub-applications. Keep this as tiny as possible. Something like auth or db access wrappers may reside here if the footprint is small.
+
+mainframe/ 
+     Entry points for wiring up all applications together.
+  -- client/
+  -- server/
+  -- shared/
+
+timeline/ 
+     The application that renders events on a timeline axis.
+  -- client/
+  -- server/
+  -- shared/
+
+characters/ 
+     The application that organizes by centering events around a particular historical character (selected by user).
+  -- client/
+  -- server/
+  -- shared/
+
+
