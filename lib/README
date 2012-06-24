@@ -1,1 +1,0 @@
-Physical storage location for 3rd party libraries. They can be soft-linked into each app's lib folder.
